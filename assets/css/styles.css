@@ -85,13 +85,25 @@ a:hover { color: var(--color-highlight); }
   gap: var(--space-4);
 }
 
+/* Navigation links: white by default, orange on hover */
 .nav a {
-  color: var(--color-accent) !important;
+  color: #ffffff !important;                 /* white text for strong contrast */
   font-weight: 600;
   font-size: var(--fs-2);
 }
+
 .nav a:hover,
-.nav a:focus { color: var(--color-white) !important; }
+.nav a:focus {
+  color: var(--color-highlight) !important;  /* deep orange #F77F00 on hover */
+  text-decoration: underline;                /* optional: clearer hover cue */
+}
+
+/* Optional: indicate current page */
+.nav a[aria-current="page"],
+.nav .active > a {
+  color: var(--color-accent) !important;     /* gold for active link */
+}
+
 
 .nav-toggle {
   background: transparent;
