@@ -85,24 +85,42 @@ a:hover { color: var(--color-highlight); }
   gap: var(--space-4);
 }
 
-/* Navigation links: white by default, orange on hover */
+/* ===========================
+   Navigation Links
+   =========================== */
 .nav a {
-  color: #ffffff !important;                 /* white text for strong contrast */
+  color: #ffffff !important;                 /* White text for strong contrast */
   font-weight: 600;
   font-size: var(--fs-2);
 }
 
 .nav a:hover,
 .nav a:focus {
-  color: var(--color-highlight) !important;  /* deep orange #F77F00 on hover */
-  text-decoration: underline;                /* optional: clearer hover cue */
+  color: var(--color-highlight) !important;  /* Deep orange (#F77F00) on hover */
+  text-decoration: underline;                /* Optional: clearer hover cue */
 }
 
-/* Optional: indicate current page */
+/* Optional: highlight active page link in gold */
 .nav a[aria-current="page"],
 .nav .active > a {
-  color: var(--color-accent) !important;     /* gold for active link */
+  color: var(--color-accent) !important;     /* Gold (#E9C46A) for active link */
 }
+
+/* ===========================
+   Buttons
+   =========================== */
+/* Gold accent button with white text */
+.btn.btn-accent {
+  background: var(--color-accent) !important; /* Gold background */
+  color: #ffffff !important;                  /* White text for readability */
+}
+
+/* Teal primary button with white text */
+.btn.btn-primary {
+  background: var(--color-primary) !important; /* Teal background */
+  color: #ffffff !important;                   /* White text */
+}
+
 
 
 .nav-toggle {
