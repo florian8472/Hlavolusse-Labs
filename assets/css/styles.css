@@ -86,6 +86,34 @@ a:hover { color: var(--color-highlight); }
 }
 
 /* ===========================
+   Top-right navigation links (header)
+   Force readable colors on dark header background
+   =========================== */
+
+.site-header .nav a:link,
+.site-header .nav a:visited {
+  color: #ffffff !important;                 /* white text by default */
+  font-weight: 600;
+  font-size: var(--fs-2);
+}
+
+.site-header .nav a:hover,
+.site-header .nav a:focus {
+  color: var(--color-highlight) !important;  /* deep orange (#F77F00) on hover/focus */
+  text-decoration: underline;                /* optional: clearer hover cue */
+}
+
+.site-header .nav a:active {
+  color: #ffffff !important;                 /* keep contrast when pressed */
+}
+
+/* Optional: highlight current page link in gold */
+.site-header .nav a[aria-current="page"],
+.site-header .nav .active > a {
+  color: var(--color-accent) !important;     /* gold (#E9C46A) for the active/current page */
+}
+
+/* ===========================
    Navigation Links
    =========================== */
 .nav a {
