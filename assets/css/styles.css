@@ -291,21 +291,13 @@ a:hover { color: var(--color-highlight); }
   .btn { width: 100%; }
 }
 
-/* Remove unintended indentation on the first paragraph in the hero */
-.hero-text p:first-of-type {
+/* Align the last paragraph in hero-text (motto) flush left */
+.hero-text p:last-of-type {
+  text-align: left !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
   text-indent: 0 !important;
-  margin-top: 0;               /* avoid top offset that can feel like indent */
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
 }
 
-/* Optional: tighten the vertical spacing for the motto line */
-.hero-text p:first-of-type {
-  margin-bottom: var(--space-2); /* slightly tighter than default */
-}
-
-.hero-text p {
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  text-indent: 0 !important;
-}
