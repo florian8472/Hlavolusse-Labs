@@ -291,13 +291,13 @@ a:hover { color: var(--color-highlight); }
   .btn { width: 100%; }
 }
 
-/* Align the last paragraph in hero-text (motto) flush left */
+
+/* Remove leftover padding from old bar styling on motto */
 .hero-text p:last-of-type {
-  text-align: left !important;
-  margin-left: 0 !important;
   padding-left: 0 !important;
+  margin-left: 0 !important;
   text-indent: 0 !important;
-  margin-top: var(--space-2);
-  margin-bottom: var(--space-2);
+  border-left: none !important; /* ensure no bar reappears */
 }
+
 
