@@ -290,3 +290,16 @@ a:hover { color: var(--color-highlight); }
   .hero-title { font-size: clamp(1.75rem, 6vw + 1rem, 3rem); }
   .btn { width: 100%; }
 }
+
+/* Remove unintended indentation on the first paragraph in the hero */
+.hero-text p:first-of-type {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+  margin-top: 0;               /* avoid top offset that can feel like indent */
+}
+
+/* Optional: tighten the vertical spacing for the motto line */
+.hero-text p:first-of-type {
+  margin-bottom: var(--space-2); /* slightly tighter than default */
+}
