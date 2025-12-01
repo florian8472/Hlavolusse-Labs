@@ -319,7 +319,8 @@ a:hover { color: var(--color-highlight); }
   .btn { width: 100%; }
 }
 
-/* === Welcome two-column layout === */
+
+/* Welcome two-column layout */
 .welcome-split .welcome-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* text | image */
@@ -328,26 +329,11 @@ a:hover { color: var(--color-highlight); }
   padding-top: var(--space-4);
 }
 
-.welcome-text h2 {
-  /* keep heading consistent with section titles */
-  margin: 0 0 var(--space-3);
-  font-size: var(--fs-5);
-  color: var(--color-deep) !important;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.welcome-text p {
-  font-size: var(--fs-3);
-  color: #223;
-  margin: 0 0 var(--space-3);
-}
-
 .welcome-media img {
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-2);
   width: 100%;
   height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
 }
 
 .welcome-media .caption {
@@ -357,15 +343,10 @@ a:hover { color: var(--color-highlight); }
   text-align: center;
 }
 
-/* Responsive: stack on narrow screens */
+/* Stack on narrow screens */
 @media (max-width: 900px) {
   .welcome-split .welcome-grid {
     grid-template-columns: 1fr;
     gap: var(--space-5);
   }
-}
-
-.welcome-media img {
-  width: 100%;
-  height: auto;
 }
