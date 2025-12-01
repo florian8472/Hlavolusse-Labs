@@ -318,3 +318,49 @@ a:hover { color: var(--color-highlight); }
   .hero-title { font-size: clamp(1.75rem, 6vw + 1rem, 3rem); }
   .btn { width: 100%; }
 }
+
+/* === Welcome two-column layout === */
+.welcome-split .welcome-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* text | image */
+  align-items: start;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+}
+
+.welcome-text h2 {
+  /* keep heading consistent with section titles */
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-5);
+  color: var(--color-deep) !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.welcome-text p {
+  font-size: var(--fs-3);
+  color: #223;
+  margin: 0 0 var(--space-3);
+}
+
+.welcome-media img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+  width: 100%;
+  height: auto;
+}
+
+.welcome-media .caption {
+  font-size: var(--fs-1);
+  color: #666;
+  margin-top: var(--space-2);
+  text-align: center;
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 900px) {
+  .welcome-split .welcome-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
