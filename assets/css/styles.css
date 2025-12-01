@@ -364,3 +364,8 @@ a:hover { color: var(--color-highlight); }
     gap: var(--space-5);
   }
 }
+
+.welcome-media img {
+  width: 100%;
+  height: auto;
+}
