@@ -1,6 +1,6 @@
 
 /* =========================================================
-   HLab.Science – Compact Theme (header/footer tightened)
+   HLab.Science – Compact Theme (normalized hero blocks)
    ========================================================= */
 
 /* ---------- CSS Variables ---------- */
@@ -18,18 +18,18 @@
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   --font-serif: "Lora", Georgia, serif;
 
-  /* Type scale */
+  /* Type scale (compact) */
   --fs-1: 0.875rem;
   --fs-2: 1rem;
   --fs-3: 1.125rem;
-  --fs-4: 1.375rem;           /* slightly smaller for compact header brand */
+  --fs-4: 1.375rem;           /* brand in header (compact) */
   --fs-5: 1.875rem;
   --fs-6: clamp(2rem, 4vw + 1rem, 3.25rem);
 
   /* Spacing (compact) */
   --space-1: 0.375rem;
   --space-2: 0.625rem;
-  --space-3: 0.875rem;        /* smaller default padding */
+  --space-3: 0.875rem;
   --space-4: 1.25rem;
   --space-5: 1.75rem;
   --space-6: 2.5rem;
@@ -84,7 +84,6 @@ a:hover { color: var(--color-highlight); }
 }
 
 /* ---------- Header (compact) ---------- */
-/* Layout: compact vertical padding + horizontal nav row */
 .site-header {
   background: var(--color-deep) !important;
   color: var(--color-white) !important;
@@ -94,50 +93,41 @@ a:hover { color: var(--color-highlight); }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.site-header .header-inner {
-  /* If you want a wrapper, you can add <div class="container header-inner"> in HTML.
-     The following rules also apply directly to .site-header if not using header-inner. */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  padding: var(--space-3) 0;                 /* compact vertical padding */
-}
-
 .site-header .logo {
   color: var(--color-white) !important;
   font-weight: 800;
   letter-spacing: 0.02em;
-  font-size: var(--fs-4);                    /* slightly smaller */
+  font-size: var(--fs-4);
   text-transform: uppercase;
+  padding: var(--space-3) 0;                 /* compact vertical rhythm */
 }
 
-/* Horizontal nav row (no wrapping on desktop) */
+/* Nav layout: horizontal row (desktop) */
 .nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: nowrap;                         /* keep side-by-side */
-  gap: var(--space-4);                       /* spacing between items */
+  gap: var(--space-4);
 }
 
-/* High-contrast nav links */
+/* High-contrast header links (override visited) */
 .site-header .nav a:link,
 .site-header .nav a:visited {
   color: #ffffff !important;                 /* white by default */
   font-weight: 600;
   font-size: var(--fs-2);
-  line-height: 1;                            /* compact line-height */
-  padding: var(--space-2) var(--space-2);    /* small tappable target */
+  line-height: 1;
+  padding: var(--space-2) var(--space-2);    /* compact tap target */
   border-radius: 6px;
 }
 
 .site-header .nav a:hover,
 .site-header .nav a:focus {
-  color: var(--color-highlight) !important;  /* deep orange hover/focus */
+  color: var(--color-highlight) !important;  /* deep orange on hover/focus */
   text-decoration: none;
-  background: rgba(255,255,255,0.06);        /* subtle hover bg for affordance */
+  background: rgba(255,255,255,0.06);
 }
 
 .site-header .nav a:active { color: #ffffff !important; }
@@ -153,17 +143,54 @@ a:hover { color: var(--color-highlight); }
 .site-header .primary-nav a:link,
 .site-header .primary-nav a:visited { color: #ffffff !important; }
 
-/* Mobile menu toggle hidden by default (desktop-first) */
+/* Mobile toggle hidden (desktop-first) */
 .nav-toggle { display: none; }
 
-/* ---------- Hero (slightly tightened) ---------- */
+/* ---------- Hero (normalized blocks) ---------- */
 .hero {
-  padding: var(--space-7) 0 var(--space-6);  /* still generous but a bit less than before */
+  padding: var(--space-7) 0 var(--space-6);
   background: linear-gradient(to bottom, rgba(38,70,83,0.06), var(--color-bg));
 }
 
-.hero-text { max-width: 56ch; }
+/* Keep readable line length for Vision, Mission, Motto */
+.hero-text { max-width: 60ch; }
 
+/* Make all hero headings identical */
+.hero-text h1,
+.hero-text h2,
+.hero-text h3 {
+  text-align: left !important;
+  margin: 0 0 var(--space-2) !important;   /* consistent bottom spacing */
+  padding: 0 !important;
+  color: var(--color-deep);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* Make all hero paragraphs identical */
+.hero-text p {
+  text-align: left !important;
+  margin: 0 0 var(--space-3) !important;   /* consistent paragraph spacing */
+  padding: 0 !important;
+  text-indent: 0 !important;               /* ensure no indent */
+  border: 0 !important;                    /* remove any borders */
+  color: #223;
+  font-size: var(--fs-3);
+}
+
+/* Remove any leftover bar/pseudo-element on the last block (Motto) */
+.hero-text h2:last-of-type,
+.hero-text p:last-of-type {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  border-left: none !important;
+}
+.hero-text h2:last-of-type::before,
+.hero-text p:last-of-type::before {
+  content: none !important;
+}
+
+/* Hero title (lab name) remains prominent but follows normalization */
 .hero-title {
   margin: 0 0 var(--space-2);
   font-size: var(--fs-6);
@@ -171,12 +198,6 @@ a:hover { color: var(--color-highlight); }
   letter-spacing: -0.02em;
   color: var(--color-deep);
   line-height: 1.1;
-}
-
-.hero p {
-  font-size: var(--fs-3);
-  color: #223;
-  margin-bottom: var(--space-3);
 }
 
 .hero-media img {
@@ -202,10 +223,10 @@ a:hover { color: var(--color-highlight); }
 .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
 .btn:active { transform: translateY(0); }
 
-/* Accent (gold) button retains dark text (your original preference) */
+/* Accent (gold) button retains dark text (original preference) */
 .btn.btn-accent {
   background: var(--color-accent) !important;
-  color: #563b00 !important;                  /* dark text for high readability */
+  color: #563b00 !important;                  /* dark text for readability */
 }
 .btn.btn-accent:hover { background: #f0c86f; }
 
@@ -225,7 +246,7 @@ a:hover { color: var(--color-highlight); }
 .btn.btn-outline:hover { color: #ffffff; background: var(--color-primary); }
 
 /* ---------- Sections ---------- */
-.section { padding: var(--space-5) 0; }      /* tighter vertical rhythm */
+.section { padding: var(--space-5) 0; }
 
 .section-title {
   margin: 0 0 var(--space-3);
@@ -273,8 +294,7 @@ a:hover { color: var(--color-highlight); }
 @media (max-width: 768px) {
   .container { width: min(100% - 1.5rem, var(--max-content)); }
 
-  /* Allow the header to stay compact; wrap if needed */
-  .site-header .header-inner { padding: var(--space-3) 0; }
+  /* Keep header compact; allow wrapping if needed */
   .nav ul {
     gap: var(--space-2);
     flex-wrap: wrap;                          /* wrap on small screens, still compact */
@@ -290,14 +310,3 @@ a:hover { color: var(--color-highlight); }
   .hero-title { font-size: clamp(1.75rem, 6vw + 1rem, 3rem); }
   .btn { width: 100%; }
 }
-
-
-/* Remove leftover padding from old bar styling on motto */
-.hero-text p:last-of-type {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  text-indent: 0 !important;
-  border-left: none !important; /* ensure no bar reappears */
-}
-
-
