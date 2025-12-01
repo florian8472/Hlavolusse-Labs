@@ -303,3 +303,9 @@ a:hover { color: var(--color-highlight); }
 .hero-text p:first-of-type {
   margin-bottom: var(--space-2); /* slightly tighter than default */
 }
+
+.hero-text p {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+}
