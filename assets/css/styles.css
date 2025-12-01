@@ -1,6 +1,6 @@
 
 /* =========================================================
-   HLab.Science – Compact Theme (normalized hero blocks)
+   HLab.Science – Compact Theme (normalized hero/about blocks)
    ========================================================= */
 
 /* ---------- CSS Variables ---------- */
@@ -103,7 +103,8 @@ a:hover { color: var(--color-highlight); }
 }
 
 /* Nav layout: horizontal row (desktop) */
-.nav ul {
+.nav ul,
+.primary-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -114,7 +115,9 @@ a:hover { color: var(--color-highlight); }
 
 /* High-contrast header links (override visited) */
 .site-header .nav a:link,
-.site-header .nav a:visited {
+.site-header .nav a:visited,
+.site-header .primary-nav a:link,
+.site-header .primary-nav a:visited {
   color: #ffffff !important;                 /* white by default */
   font-weight: 600;
   font-size: var(--fs-2);
@@ -124,73 +127,34 @@ a:hover { color: var(--color-highlight); }
 }
 
 .site-header .nav a:hover,
-.site-header .nav a:focus {
+.site-header .nav a:focus,
+.site-header .primary-nav a:hover,
+.site-header .primary-nav a:focus {
   color: var(--color-highlight) !important;  /* deep orange on hover/focus */
   text-decoration: none;
   background: rgba(255,255,255,0.06);
 }
 
-.site-header .nav a:active { color: #ffffff !important; }
+.site-header .nav a:active,
+.site-header .primary-nav a:active { color: #ffffff !important; }
 
 /* Current page marker (optional) */
 .site-header .nav a[aria-current="page"],
-.site-header .nav .active > a {
+.site-header .nav .active > a,
+.site-header .primary-nav a[aria-current="page"],
+.site-header .primary-nav .active > a {
   color: var(--color-accent) !important;     /* gold for current page */
 }
-
-/* In case some pages still use .primary-nav */
-.site-header .primary-nav ul { display: flex; flex-wrap: nowrap; gap: var(--space-4); }
-.site-header .primary-nav a:link,
-.site-header .primary-nav a:visited { color: #ffffff !important; }
 
 /* Mobile toggle hidden (desktop-first) */
 .nav-toggle { display: none; }
 
-/* ---------- Hero (normalized blocks) ---------- */
+/* ---------- Hero (used on home) ---------- */
 .hero {
   padding: var(--space-7) 0 var(--space-6);
   background: linear-gradient(to bottom, rgba(38,70,83,0.06), var(--color-bg));
 }
-
-/* Keep readable line length for Vision, Mission, Motto */
 .hero-text { max-width: 60ch; }
-
-/* Make all hero headings identical */
-.hero-text h1,
-.hero-text h2,
-.hero-text h3 {
-  text-align: left !important;
-  margin: 0 0 var(--space-2) !important;   /* consistent bottom spacing */
-  padding: 0 !important;
-  color: var(--color-deep);
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-
-/* Make all hero paragraphs identical */
-.hero-text p {
-  text-align: left !important;
-  margin: 0 0 var(--space-3) !important;   /* consistent paragraph spacing */
-  padding: 0 !important;
-  text-indent: 0 !important;               /* ensure no indent */
-  border: 0 !important;                    /* remove any borders */
-  color: #223;
-  font-size: var(--fs-3);
-}
-
-/* Remove any leftover bar/pseudo-element on the last block (Motto) */
-.hero-text h2:last-of-type,
-.hero-text p:last-of-type {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  border-left: none !important;
-}
-.hero-text h2:last-of-type::before,
-.hero-text p:last-of-type::before {
-  content: none !important;
-}
-
-/* Hero title (lab name) remains prominent but follows normalization */
 .hero-title {
   margin: 0 0 var(--space-2);
   font-size: var(--fs-6);
@@ -199,10 +163,68 @@ a:hover { color: var(--color-highlight); }
   color: var(--color-deep);
   line-height: 1.1;
 }
+.hero-text h1,
+.hero-text h2,
+.hero-text h3 {
+  text-align: left !important;
+  margin: 0 0 var(--space-2) !important;
+  padding: 0 !important;
+  color: var(--color-deep);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.hero-text p {
+  text-align: left !important;
+  margin: 0 0 var(--space-3) !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+  border: 0 !important;
+  color: #223;
+  font-size: var(--fs-3);
+}
+.hero-media img { border-radius: var(--radius); box-shadow: var(--shadow-2); }
 
-.hero-media img {
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-2);
+/* ---------- About page content grid ---------- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+}
+.content-grid article h2 {
+  text-align: left !important;
+  margin: 0 0 var(--space-2) !important;
+  padding: 0 !important;
+  color: var(--color-deep);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.content-grid article p {
+  text-align: left !important;
+  margin: 0 0 var(--space-3) !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+  border: 0 !important;
+  color: #223;
+  font-size: var(--fs-3);
+}
+
+/* ✅ Make Motto identical to Vision & Mission: remove blockquote indent/border */
+.content-grid article.motto blockquote {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;           /* no left bar */
+}
+.content-grid article.motto blockquote::before,
+.content-grid article.motto blockquote::after {
+  content: none !important;       /* no decorative pseudo-elements */
+}
+.content-grid article.motto blockquote p {
+  margin: 0 0 var(--space-3) !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+  color: #223;
+  font-size: var(--fs-3);
 }
 
 /* ---------- Buttons (old accent text preserved) ---------- */
@@ -219,7 +241,6 @@ a:hover { color: var(--color-highlight); }
   box-shadow: var(--shadow-1);
   transition: transform 120ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
-
 .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
 .btn:active { transform: translateY(0); }
 
@@ -247,7 +268,6 @@ a:hover { color: var(--color-highlight); }
 
 /* ---------- Sections ---------- */
 .section { padding: var(--space-5) 0; }
-
 .section-title {
   margin: 0 0 var(--space-3);
   font-size: var(--fs-5);
@@ -255,7 +275,6 @@ a:hover { color: var(--color-highlight); }
   font-weight: 800;
   letter-spacing: -0.02em;
 }
-
 .lead { font-size: var(--fs-3); color: #223; margin-bottom: var(--space-3); }
 
 /* ---------- Footer (compact) ---------- */
@@ -266,7 +285,6 @@ a:hover { color: var(--color-highlight); }
   border-top: 1px solid rgba(255,255,255,0.08);
   margin-top: var(--space-6);
 }
-
 .footer-inner {
   width: min(100% - 2rem, var(--max-content));
   margin-inline: auto;
@@ -276,7 +294,6 @@ a:hover { color: var(--color-highlight); }
   gap: var(--space-3);
   flex-wrap: wrap;                            /* wrap nicely on small screens */
 }
-
 .site-footer a { color: var(--color-accent) !important; }
 .site-footer a:hover { color: var(--color-white) !important; }
 
@@ -288,24 +305,15 @@ a:hover { color: var(--color-highlight); }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .site-header .logo { font-size: 1.25rem; }
-  .nav ul { gap: var(--space-3); }
+  .nav ul, .primary-nav ul { gap: var(--space-3); }
 }
-
 @media (max-width: 768px) {
   .container { width: min(100% - 1.5rem, var(--max-content)); }
-
-  /* Keep header compact; allow wrapping if needed */
-  .nav ul {
-    gap: var(--space-2);
-    flex-wrap: wrap;                          /* wrap on small screens, still compact */
-  }
-
+  .nav ul, .primary-nav ul { gap: var(--space-2); flex-wrap: wrap; }
   .hero { padding: var(--space-6) 0 var(--space-5); }
   .section { padding: var(--space-4) 0; }
-
   .footer-inner { gap: var(--space-2); }
 }
-
 @media (max-width: 520px) {
   .hero-title { font-size: clamp(1.75rem, 6vw + 1rem, 3rem); }
   .btn { width: 100%; }
