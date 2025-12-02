@@ -37,3 +37,6 @@ On the computer terminal, I added:
 cd /path/to/homepage
 git init
 git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/florian8472/Hlavolusse-Labs.git
+git push -u origin main
