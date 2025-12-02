@@ -5,6 +5,8 @@ Used two websites and one editor
 Netlify and Github are the two websites
 Editor = Visual Studio Code (VSD; program on my desktop)
 Also downloaded Git to my desktop, which allows me to push code from Github to Netlify
+Important: first download VSD. Use default installation settings. 
+Then download Git. During installation, select VSD as the default Git editor! Other than that, use default installation settings. 
 Created a folder in the folder 'Website' on my computer (or rather S Laptop Florian 2021)
 This folder is named Hlavolusse-Labs and contains all the relevant files for the homepage 
 The index.html file is the file that defines the structure of the homepage
@@ -24,3 +26,9 @@ HTML and CSS are two different languages that work together to build websites, b
 HTML says: “Here’s a button.”
 CSS says: “Make that button gold with white text and rounded corners.”
 For a photo: place it as JPG file into the assets/img folder
+hlab.science has IP address: 13.52.188.95
+On December 1st 2025, I copied the folders and files containing the coding my our homepage into "J:\Website\Hlavolusse-Labs"
+This is now the local repo from where changes are pushed to the Remote repo on Github
+Local repo: On your computer (like J:\Website\Hlavolusse-Labs)
+Remote repo: On a server (like GitHub)
+Netlify builds your site from the remote Github repo whenever you push changes
