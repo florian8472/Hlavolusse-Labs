@@ -32,3 +32,8 @@ This is now the local repo from where changes are pushed to the Remote repo on G
 Local repo: On your computer (like J:\Website\Hlavolusse-Labs)
 Remote repo: On a server (like GitHub)
 Netlify builds your site from the remote Github repo whenever you push changes
+When I changed the server hosting my homepage files, I had to designate them again as a Git repository
+On the computer terminal, I added: 
+cd /path/to/homepage
+git init
+git add .
